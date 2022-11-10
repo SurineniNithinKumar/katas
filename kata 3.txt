@@ -1,0 +1,89 @@
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git branch
+* master
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git branch mybranch
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git branch
+* master
+  mybranch
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git switch mybranch
+Switched to branch 'mybranch'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git status
+On branch mybranch
+nothing to commit, working tree clean
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ touch file1.txt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git add -A
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git commit -m"kata 3 commit"
+[mybranch 5530c83] kata 3 commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git add -A
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git commit -m"kata 3 commit"
+[mybranch 92de99d] kata 3 commit
+ 1 file changed, 1 insertion(+)
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git log --oneline --graph
+* 92de99d (HEAD -> mybranch) kata 3 commit
+* 5530c83 kata 3 commit
+* bc5f3d8 (master) kata 2 commit
+* 261a36d kata 1  3rdcommit
+* f929d52 kata 1 2 commit
+* 848a277 kata 1 commit
+* d89b7c3 grt commit
+* de99f94 4th txt updated
+* ae7776a 2nd txt updated
+* 1a7fe0d 2nd txt created
+* 36c95b3 text created
+* 839d5b8 text created
+* 4367390 text created
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git switch master
+Switched to branch 'master'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git log --oneline --graph
+* bc5f3d8 (HEAD -> master) kata 2 commit
+* 261a36d kata 1  3rdcommit
+* f929d52 kata 1 2 commit
+* 848a277 kata 1 commit
+* d89b7c3 grt commit
+* de99f94 4th txt updated
+* ae7776a 2nd txt updated
+* 1a7fe0d 2nd txt created
+* 36c95b3 text created
+* 839d5b8 text created
+* 4367390 text created
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git switch mybranch
+Switched to branch 'mybranch'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git diff mybranch master
+diff --git a/file1.txt b/file1.txt
+deleted file mode 100644
+index 1d8490d..0000000
+--- a/file1.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-nithin
+\ No newline at end of file
