@@ -1,0 +1,173 @@
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ echo 2 > file1.txt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git diff
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git diff --staged
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ rm file1.txt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ echo 2 > 'file 1.txt'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git diff
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git diff --staged
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git add -A
+warning: in the working copy of 'file 1.txt', LF will be replaced by CRLF the next time Git touches it
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git diff
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git diff --staged
+diff --git a/file 1.txt b/file 1.txt
+new file mode 100644
+index 0000000..0cfbf08
+--- /dev/null
++++ b/file 1.txt
+@@ -0,0 +1 @@
++2
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ ech0 3 > 'file 1.txt'
+bash: ech0: command not found
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ echo 3 > 'file 1.txt'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git diff
+warning: in the working copy of 'file 1.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/file 1.txt b/file 1.txt
+index 0cfbf08..00750ed 100644
+--- a/file 1.txt
++++ b/file 1.txt
+@@ -1 +1 @@
+-2
++3
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git diff --staged
+diff --git a/file 1.txt b/file 1.txt
+new file mode 100644
+index 0000000..0cfbf08
+--- /dev/null
++++ b/file 1.txt
+@@ -0,0 +1 @@
++2
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file 1.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file 1.txt
+
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git restore --staged 'file 1.txt'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file 1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git add -A
+warning: in the working copy of 'file 1.txt', LF will be replaced by CRLF the next time Git touches it
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git commit -m"kata 2 commit"
+[master bc5f3d8] kata 2 commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file 1.txt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git log
+commit bc5f3d8b9dbc846300eab899d332973381411757 (HEAD -> master)
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Thu Nov 10 11:29:54 2022 +0530
+
+    kata 2 commit
+
+commit 261a36dc8e130970e2bc7ab44aa2aefac0f29c23
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Thu Nov 10 11:10:09 2022 +0530
+
+    kata 1  3rdcommit
+
+commit f929d527aed310ead0a83a14f17657b0cff26d2e
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Thu Nov 10 11:08:51 2022 +0530
+
+    kata 1 2 commit
+
+commit 848a27721163ade71fdc90d2b64796d18fcc03d6
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Thu Nov 10 11:05:56 2022 +0530
+
+    kata 1 commit
+
+commit d89b7c3659cdb81fac40d20b67d42c57ddce16d4
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Thu Nov 10 10:06:05 2022 +0530
+
+    grt commit
+
+commit de99f94d2b7b70edd1d3bb3dfb0466c87dcd5b9f
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Wed Nov 9 22:05:58 2022 +0530
+
+    4th txt updated
+
+commit ae7776a7bbbe2c9d461217f3ca8c618dca672fe2
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Wed Nov 9 21:24:40 2022 +0530
+
+    2nd txt updated
+
+commit 1a7fe0dd2d7ad001a0d6198ace5b077a05c37e61
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Wed Nov 9 21:15:03 2022 +0530
+
+    2nd txt created
+
+commit 36c95b327cf40ef2b393117af5bd3a5b3f68b3a1
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ echo 4 > 'file 1.txt'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file 1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git restore 'file 1.txt'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
