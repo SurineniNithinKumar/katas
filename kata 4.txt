@@ -1,0 +1,95 @@
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git branch feature
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (mybranch)
+$ git switch feature
+Switched to branch 'feature'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (feature)
+$ git status
+On branch feature
+nothing to commit, working tree clean
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (feature)
+$ touch grt.txt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (feature)
+$ git add -A
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (feature)
+$ git commit -m"kata 4 commit"
+[feature 27d4634] kata 4 commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 grt.txt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (feature)
+$ git branch
+* feature
+  master
+  mybranch
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (feature)
+$ git log --oneline --graph -all
+error: switch `l' expects a numerical value
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (feature)
+$ git log --oneline --graph --all
+* 27d4634 (HEAD -> feature) kata 4 commit
+* 92de99d (mybranch) kata 3 commit
+* 5530c83 kata 3 commit
+* bc5f3d8 (master) kata 2 commit
+* 261a36d kata 1  3rdcommit
+* f929d52 kata 1 2 commit
+* 848a277 kata 1 commit
+* d89b7c3 grt commit
+* de99f94 4th txt updated
+* ae7776a 2nd txt updated
+* 1a7fe0d 2nd txt created
+* 36c95b3 text created
+* 839d5b8 text created
+* 4367390 text created
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (feature)
+$ git switch master
+Switched to branch 'master'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ catvgrt.txt
+bash: catvgrt.txt: command not found
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git diff master feature
+diff --git a/file1.txt b/file1.txt
+new file mode 100644
+index 0000000..1d8490d
+--- /dev/null
++++ b/file1.txt
+@@ -0,0 +1 @@
++nithin
+\ No newline at end of file
+diff --git a/grt.txt b/grt.txt
+new file mode 100644
+index 0000000..cdc8466
+--- /dev/null
++++ b/grt.txt
+@@ -0,0 +1 @@
++GOOD MORNING
+\ No newline at end of file
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git merge feature
+Updating bc5f3d8..27d4634
+Fast-forward
+ file1.txt | 1 +
+ grt.txt   | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1.txt
+ create mode 100644 grt.txt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ cat grt.txt
+GOOD MORNING
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
+$ git branch --delete feature
+Deleted branch feature (was 27d4634).
