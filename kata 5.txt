@@ -1,0 +1,163 @@
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git branch grt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git switch grt
+Switched to branch 'grt'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (grt)
+$ git add -A
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (grt)
+$ git commit -m"kata 5"
+[grt de1a37d] kata 5
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (grt)
+$ git switch master
+Switched to branch 'master'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ touch README.md
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git add -A
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git commit -m"kata 5.readme"
+[master aff907a] kata 5.readme
+ 1 file changed, 6 insertions(+)
+ create mode 100644 README.md
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git log --oneline --graph --all
+* aff907a (HEAD -> master) kata 5.readme
+| * de1a37d (grt) kata 5
+|/
+*   27ca86d Merge branch 'feat'
+|\
+| * 9af63a4 kata 4
+| * cc4c77e (my) kata 3
+* | ad038dc kata 3.1
+|/
+* 25f9c1d kat 2
+* d96c5db kat 1.1
+* 1f4f4c9 kat 1.1
+* 4173f4d kat 1
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git diff master grt
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index cbcce45..0000000
+--- a/README.md
++++ /dev/null
+@@ -1,6 +0,0 @@
+-Create a branch called greeting and switch to it
+-Edit the greeting.txt to contain your favorite greeting
+-Add greeting.txt files to the staging area
+-Commit
+-Switch back to the master branch
+-Create a file README.md with information about this repository
+diff --git a/grt.txt b/grt.txt
+index d9605cb..b861e9b 100644
+--- a/grt.txt
++++ b/grt.txt
+@@ -1 +1,2 @@
+-HELLO
+\ No newline at end of file
++HELLO
++good morning
+\ No newline at end of file
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git diff grt master
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..cbcce45
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,6 @@
++Create a branch called greeting and switch to it
++Edit the greeting.txt to contain your favorite greeting
++Add greeting.txt files to the staging area
++Commit
++Switch back to the master branch
++Create a file README.md with information about this repository
+diff --git a/grt.txt b/grt.txt
+index b861e9b..d9605cb 100644
+--- a/grt.txt
++++ b/grt.txt
+@@ -1,2 +1 @@
+-HELLO
+-good morning
+\ No newline at end of file
++HELLO
+\ No newline at end of file
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git diff grt my
+diff --git a/file2.txt b/file2.txt
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/grt.txt b/grt.txt
+deleted file mode 100644
+index b861e9b..0000000
+--- a/grt.txt
++++ /dev/null
+@@ -1,2 +0,0 @@
+-HELLO
+-good morning
+\ No newline at end of file
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git diff master my
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index cbcce45..0000000
+--- a/README.md
++++ /dev/null
+@@ -1,6 +0,0 @@
+-Create a branch called greeting and switch to it
+-Edit the greeting.txt to contain your favorite greeting
+-Add greeting.txt files to the staging area
+-Commit
+-Switch back to the master branch
+-Create a file README.md with information about this repository
+diff --git a/file2.txt b/file2.txt
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/grt.txt b/grt.txt
+deleted file mode 100644
+index d9605cb..0000000
+--- a/grt.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-HELLO
+\ No newline at end of file
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git merge master grt
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/rajesh/Desktop/tuna/.git/MERGE_MSG to DOS format...
+dos2unix: converting file C:/Users/rajesh/Desktop/tuna/.git/MERGE_MSG to Unix format...
+Merge made by the 'ort' strategy.
+ grt.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/tuna (master)
+$ git log --oneline --graph --all
+*   55eedfa (HEAD -> master) Merge branch 'grt'
+|\
+| * de1a37d (grt) kata 5
+* | aff907a kata 5.readme
+|/
+*   27ca86d Merge branch 'feat'
+|\
+| * 9af63a4 kata 4
+| * cc4c77e (my) kata 3
+* | ad038dc kata 3.1
+|/
+* 25f9c1d kat 2
+* d96c5db kat 1.1
+* 1f4f4c9 kat 1.1
+* 4173f4d kat 1
