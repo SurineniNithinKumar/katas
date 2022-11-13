@@ -8,23 +8,7 @@ rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
 $ git diff --staged
 
 rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
-$ rm file1.txt
-
-rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
-$ echo 2 > 'file 1.txt'
-
-rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
-$ git diff
-
-rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
-$ git diff --staged
-
-rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
-$ git add -A
-warning: in the working copy of 'file 1.txt', LF will be replaced by CRLF the next time Git touches it
-
-rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
-$ git diff
+$ rm f
 
 rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/intern (master)
 $ git diff --staged
