@@ -1,0 +1,305 @@
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git remote
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Hello_world.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git add .
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git commit -m"commit hello world"
+[master (root-commit) 0e2d1de] commit hello world
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Hello_world.txt
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git remote add origin git@github.com:SurineniNithinKumar/zemoso-training.git
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git origin
+git: 'origin' is not a git command. See 'git --help'.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git remote
+origin
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git push -u origin master
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ ssh-keygen -t ed25519 -C "nithin.surineni@zemosolabs.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/rajesh/.ssh/id_ed25519):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/rajesh/.ssh/id_ed25519
+Your public key has been saved in /c/Users/rajesh/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:lP2yLOmF04UkI4RODyK0BfZZYJUOU4S6HukQRiYt+7k nithin.surineni@zemosolabs.com
+The key's randomart image is:
++--[ED25519 256]--+
+|.=.+**o          |
+|=oB+*o   o       |
+|+=.*+o. = o      |
+|oo  ...o + o     |
+|.oo.    S o o    |
+|.+o      = +     |
+|+ ..    = =      |
+| oE    . +       |
+|        .        |
++----[SHA256]-----+
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ eval "$(ssh-agent -s)"
+Agent pid 1081
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ ssh-add ~/.ssh/id_ed25519
+Identity added: /c/Users/rajesh/.ssh/id_ed25519 (nithin.surineni@zemosolabs.com)
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ tail ~/.ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAxmvPuMeqy4XTofUUdLly5C9NbU58BxZiEKoRV8Mf8x nithin.surineni@zemosolabs.com
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ ^C
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 1.38 KiB | 708.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/SurineniNithinKumar/zemoso-training/pull/new/master
+remote:
+To github.com:SurineniNithinKumar/zemoso-training.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git diff
+diff --git a/Hello_world.txt b/Hello_world.txt
+index 6f88746..2394c77 100644
+--- a/Hello_world.txt
++++ b/Hello_world.txt
+@@ -1 +1 @@
+-Git development began in April 2005 after many developers of the Linux kernel gave up access to BitKeeper, a proprietary source control management system that had previously been used to maintain the project.[10] The copyright holder of BitKeeper, Larry McVoy, had withdrawn gratis use of the product after claiming that Andrew Tridgell had reverse-engineered the BitKeeper protocols. Torvalds wanted a distributed system that he could use like BitKeeper, but none of the available free systems met his needs, particularly in terms of performance. Torvalds took an example of an SCM system requiring thirty seconds to apply a patch and update all associated metadata, and noted that this would not scale to the needs of Linux kernel development, where syncing with fellow maintainers could require 250 such actions at a time. He wanted patching to take three seconds,[6] and had several other design criteria in mind: take Concurrent Versions System (CVS) as an example of what not to do; if in doubt, make the exact opposite decision[8] support a distributed, BitKeeper-like workflow[8] very strong safeguards against corruption, either accidental or malicious.[7] These three criteria eliminated every then-existing version control system, except for Monotone. Considering performance excluded this too.[8] So immediately after the 2.6.12-rc2 Linux kernel development release,[8] Torvalds set out to write his own.[8] Torvalds has quipped about the name git, which is British English slang meaning "unpleasant person". Torvalds said: "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."[11][12] The man page describes Git as "the stupid content tracker".[13] The development of Git began on 3 April 2005.[14] The project was announced on 6 April,[15] and became self-hosting as of 7 April.[14] The first merge of multiple branches was done on 18 April.[16] Torvalds achieved his performance goals; on 29 April, the nascent Git was benchmarked recording patches to the Linux kernel tree at the rate of 6.7 per second.[17] On 16 June Git managed the kernel 2.6.12 release.[18] Torvalds turned over maintenance on 26 July 2005 to Junio Hamano, a major contributor to the project.[19] Hamano was responsible for the 1.0 release on 21 December 2005, and remains the project's maintainer.[20]
+\ No newline at end of file
++Git development began in April 2005 after many developers of the Linux kernel gave up access nithin BitKeeper, a proprietary source control management system that had previously been used nithin maintain the project.[10] The copyright holder of BitKeeper, Larry McVoy, had withdrawn gratis use of the product after claiming that Andrew Tridgell had reverse-engineered the BitKeeper pronithincols. Torvalds wanted a distributed system that he could use like BitKeeper, but none of the available free systems met his needs, particularly in terms of performance. Torvalds nithinok an example of an SCM system requiring thirty seconds nithin apply a patch and update all associated metadata, and noted that this would not scale nithin the needs of Linux kernel development, where syncing with fellow maintainers could require 250 such actions at a time. He wanted patching nithin take three seconds,[6] and had several other design criteria in mind: take Concurrent Versions System (CVS) as an example of what not nithin do; if in doubt, make the exact opposite decision[8] support a distributed, BitKeeper-like workflow[8] very strong safeguards against corruption, either accidental or malicious.[7] These three criteria eliminated every then-existing version control system, except for Mononithinne. Considering performance excluded this nithino.[8] So immediately after the 2.6.12-rc2 Linux kernel development release,[8] Torvalds set out nithin write his own.[8] Torvalds has quipped about the name git, which is British English slang meaning "unpleasant person". Torvalds said: "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."[11][12] The man page describes Git as "the stupid content tracker".[13] The development of Git began on 3 April 2005.[14] The project was announced on 6 April,[15] and became self-hosting as of 7 April.[14] The first merge of multiple branches was done on 18 April.[16] Torvalds achieved his performance goals; on 29 April, the nascent Git was benchmarked recording patches nithin the Linux kernel tree at the rate of 6.7 per second.[17] On 16 June Git managed the kernel 2.6.12 release.[18] Torvalds turned over maintenance on 26 July 2005 nithin Junio Hamano, a major contribunithinr nithin the project.[19] Hamano was responsible for the 1.0 release on 21 December 2005, and remains the project's maintainer.[20]
+\ No newline at end of file
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Hello_world.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git add .
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git commit -m"replaced to with name"
+[master ec6edd9] replaced to with name
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git push -u origin master
+To github.com:SurineniNithinKumar/zemoso-training.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'github.com:SurineniNithinKumar/zemoso-training.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git push -f -u origin master
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 1.70 KiB | 870.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To github.com:SurineniNithinKumar/zemoso-training.git
+ + 02b1b57...ec6edd9 master -> master (forced update)
+branch 'master' set up to track 'origin/master'.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git log
+commit ec6edd9225843eae1034ca93ab34964ded53788d (HEAD -> master, origin/master)
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Sun Nov 13 17:21:41 2022 +0530
+
+    replaced to with name
+
+commit 0e2d1defcd327077f186bf7e0323afb0bec380be
+Author: nithin kumar <nithin.surineni@zemosolabs.com>
+Date:   Sun Nov 13 17:00:07 2022 +0530
+
+    commit hello world
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git revert 0e2d1defcd327077f186bf7e0323afb0bec380be
+CONFLICT (modify/delete): Hello_world.txt deleted in (empty tree) and modified in HEAD.  Version HEAD of Hello_world.txt left in tree.
+error: could not revert 0e2d1de... commit hello world
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git revert --continue".
+hint: You can instead skip this commit with "git revert --skip".
+hint: To abort and get back to the state before "git revert",
+hint: run "git revert --abort".
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master|REVERTING)
+$ git revert --abort
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git branch new_branch
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git switch new_branch
+Switched to branch 'new_branch'
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ code .
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git add .
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git commit -m"replaced torvalds with my name"
+[new_branch eaef237] replaced torvalds with my name
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git push origin
+fatal: The current branch new_branch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin new_branch
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git push --set-upstream origin new_branch
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 340 bytes | 340.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'new_branch' on GitHub by visiting:
+remote:      https://github.com/SurineniNithinKumar/zemoso-training/pull/new/new_branch
+remote:
+To github.com:SurineniNithinKumar/zemoso-training.git
+ * [new branch]      new_branch -> new_branch
+branch 'new_branch' set up to track 'origin/new_branch'.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git add .
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git status
+On branch new_branch
+Your branch is up to date with 'origin/new_branch'.
+
+nothing to commit, working tree clean
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ ls
+Hello_world.txt  git_clone_repo/
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git rm git_clone_repo/
+fatal: pathspec 'git_clone_repo/' did not match any files
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git rm git_clone_repo
+fatal: pathspec 'git_clone_repo' did not match any files
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git switch master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ git switch new_branch
+Switched to branch 'new_branch'
+Your branch is up to date with 'origin/new_branch'.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git checkout -f
+Your branch is up to date with 'origin/new_branch'.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git status
+On branch new_branch
+Your branch is up to date with 'origin/new_branch'.
+
+nothing to commit, working tree clean
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git switch master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ mkdir git_clone_repo
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo (master)
+$ cd git_clone_repo
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo/git_clone_repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+rajesh@DESKTOP-VOG5JCE MINGW64 ~/Desktop/first_git_repo/git_clone_repo (master)
+$ git clone https://github.com/SurineniNithinKumar/zemoso-training.git
+Cloning into 'zemoso-training'...
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 13 (delta 2), reused 9 (delta 2), pack-reused 0
+Receiving objects: 100% (13/13), done.
+Resolving deltas: 100% (2/2), done.
+
